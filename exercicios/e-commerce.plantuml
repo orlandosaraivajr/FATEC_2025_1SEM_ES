@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Cliente" as User
+
+actor "Equipe de Vendas" as Vendas
+
+rectangle "E-commerce" {
+    usecase (Login Cliente via Facebook) as UC1
+    usecase (Login Cliente via Google) as UC2
+    usecase (Adicionar Produto ao Carrinho de Compra) as UC3
+    usecase (Visualizar Carrinho de Compra) as UC4
+    usecase (Remover Produto do Carrinho de Compra) as UC5
+    usecase (Realizar Check-out) as UC6
+    usecase (Calcular Custo de Envio) as UC7
+    usecase (Selecionar Método de Pagamento) as UC8
+    usecase (Efetuar Pagamento) as UC9
+
+    User --> (UC1)
+    User --> (UC2)
+    User --> (UC3)
+    User --> (UC4)
+    User --> (UC5)
+    User --> (UC6)
+    User --> (UC7)
+    User --> (UC8)
+    User --> (UC9)
+
+
+   }
+
+rectangle "Módulo Lojista" {
+    usecase (Verificar Vendas) as LUC1
+    usecase (Monitorar Visitas ao Site) as LUC2
+    usecase (Cadastrar Produto) as LUC3
+}
+
+Vendas--> (UC2)
+Vendas--> (LUC1)
+Vendas--> (LUC2)
+Vendas--> (LUC3)
+@enduml
